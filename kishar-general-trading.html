@@ -1,0 +1,2362 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kishar Company for General Contracting</title>
+    <meta name="description" content="Kishar Company - Your Partner to Build Your Dream House. General Contracting & Construction in Basra, Iraq.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1E3A8A;
+            --accent-blue: #2563EB;
+            --light-blue: #60A5FA;
+            --white: #FFFFFF;
+            --dark-text: #1F2937;
+            --gray-text: #6B7280;
+            --light-bg: #F8FAFC;
+            --border-color: #E2E8F0;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', 'Inter', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+
+        @font-face {
+            font-family: 'TRY Vesterbro';
+            src: url('templates/public_emenu/fonts/TRYVesterbro-Light.ttf') format('truetype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TRY Vesterbro';
+            src: url('templates/public_emenu/fonts/TRYVesterbro-Regular.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TRY Vesterbro';
+            src: url('templates/public_emenu/fonts/TRYVesterbro-Bold.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TRY Vesterbro';
+            src: url('templates/public_emenu/fonts/TRYVesterbro-ExtraBold.ttf') format('truetype');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'TRY Vesterbro';
+            src: url('templates/public_emenu/fonts/TRYVesterbro-Poster.ttf') format('truetype');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        body[dir="rtl"] {
+            font-family: 'TRY Vesterbro', sans-serif;
+        }
+
+        /* Blueprint Texture Background */
+        .blueprint-bg {
+            position: relative;
+        }
+
+        .blueprint-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(30, 58, 138, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(30, 58, 138, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .blueprint-bg > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-blue);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-blue);
+        }
+
+        /* Navbar */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        #navbar.scrolled {
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 12px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .nav-logo-img {
+            height: 44px;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            transition: var(--transition);
+        }
+
+        .nav-logo-img:hover {
+            opacity: 0.85;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lang-toggle {
+            background: rgba(255, 255, 255, 0.13);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            color: #fff;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.83rem;
+            padding: 7px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .lang-toggle:hover {
+            background: rgba(255, 255, 255, 0.24);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--accent-blue), #1D4ED8);
+            color: #fff;
+            padding: 9px 22px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(30, 58, 138, 0.85) 50%, rgba(37, 99, 235, 0.75) 100%),
+                        url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=80') center/cover no-repeat;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            /* stagger animation handled by JS */
+        }
+
+        .hero-tagline {
+            display: inline-block;
+            color: var(--light-blue);
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(96, 165, 250, 0.15);
+            border-radius: 50px;
+            border: 1px solid rgba(96, 165, 250, 0.2);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            font-weight: 300;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.25rem;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-blue);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            /* stagger animation handled by JS */
+        }
+
+        .hero-visual-inner {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--accent-blue);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-desc {
+            color: var(--gray-text);
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            border: 3px solid var(--accent-blue);
+            border-radius: 16px;
+            z-index: -1;
+        }
+
+        .about-content {
+            text-align: left;
+        }
+
+        .about-content h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .about-content p {
+            color: var(--gray-text);
+            font-size: 0.97rem;
+            line-height: 1.82;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 2.2rem;
+        }
+
+        .highlight-card {
+            background: var(--light-bg);
+            border-radius: 12px;
+            padding: 20px 14px;
+            text-align: center;
+            border: 1.5px solid transparent;
+            transition: var(--transition);
+        }
+
+        .highlight-card:hover {
+            border-color: var(--accent-blue);
+            background: rgba(37, 99, 235, 0.04);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .highlight-icon {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--light-blue));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 11px;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .highlight-card h4 {
+            font-size: 0.88rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+            line-height: 1.35;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            transition: var(--transition);
+            display: flex;
+            min-height: 280px;
+            border: 1px solid rgba(226, 232, 240, 0.4);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        .service-content {
+            flex: 1;
+            padding: 2.2rem 1.5rem 2.2rem 2.2rem;
+            position: relative;
+            z-index: 2;
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        [dir="rtl"] .service-content {
+            padding: 2.2rem 2.2rem 2.2rem 1.5rem;
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .service-card p {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-blue);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-top: auto;
+        }
+
+        .service-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-link {
+            color: var(--primary-blue);
+        }
+
+        .service-card:hover .service-link i {
+            transform: translateX(5px);
+        }
+
+        [dir="rtl"] .service-card:hover .service-link i {
+            transform: translateX(-5px);
+        }
+
+        [dir="rtl"] .service-link i {
+            transform: scaleX(-1);
+        }
+
+        .service-image-wrapper {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 45%;
+            z-index: 1;
+            overflow: hidden;
+            clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+            background: var(--light-bg);
+        }
+
+        [dir="rtl"] .service-image-wrapper {
+            right: auto;
+            left: 0;
+            clip-path: polygon(0 0, 75% 0, 100% 100%, 0 100%);
+        }
+
+        .service-image-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.7s ease;
+        }
+
+        .service-card:hover .service-image-bg {
+            transform: scale(1.1);
+        }
+
+        .service-image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.4), rgba(37, 99, 235, 0.1));
+            z-index: 2;
+        }
+
+        .service-shape {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            z-index: 3;
+            opacity: 0.9;
+        }
+
+        [dir="rtl"] .service-shape {
+            right: auto;
+            left: -20px;
+        }
+
+        /* Services CTA Bar */
+        .services-cta {
+            background: linear-gradient(135deg, var(--primary-blue), #11286b);
+            border-radius: 20px;
+            padding: 2.5rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--white);
+            box-shadow: 0 20px 40px rgba(30, 58, 138, 0.2);
+            position: relative;
+            overflow: hidden;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .services-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+        }
+
+        .cta-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-icon-large {
+            width: 64px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .cta-text h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: #fff;
+        }
+
+        .cta-text p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1rem;
+        }
+
+        .cta-features {
+            display: flex;
+            gap: 2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .cta-feature i {
+            font-size: 1.25rem;
+            color: var(--light-blue);
+        }
+
+        .cta-feature div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cta-feature strong {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .cta-feature span {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .cta-right {
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+        
+        .cta-right .btn {
+            padding: 1rem 2.25rem;
+            font-size: 1.05rem;
+            border-radius: 12px;
+            white-space: nowrap;
+            background: var(--white);
+            color: var(--primary-blue);
+            transition: var(--transition);
+        }
+        
+        .cta-right .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            color: var(--accent-blue);
+        }
+        
+        @media (max-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .services-cta {
+                flex-direction: column;
+                text-align: center;
+                padding: 2.5rem;
+            }
+            .cta-left {
+                flex-direction: column;
+            }
+            .cta-features {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .service-image-wrapper {
+                clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+                width: 40%;
+            }
+            [dir="rtl"] .service-image-wrapper {
+                clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+            }
+            .cta-features {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-card {
+                flex-direction: column;
+            }
+            .service-content {
+                width: 100%;
+                padding: 2rem;
+            }
+            [dir="rtl"] .service-content {
+                padding: 2rem;
+            }
+            .service-image-wrapper {
+                position: relative;
+                width: 100%;
+                height: 150px;
+                clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+                order: -1;
+            }
+            [dir="rtl"] .service-image-wrapper {
+                clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
+            }
+            .service-shape {
+                bottom: unset;
+                top: -20px;
+            }
+            [dir="rtl"] .service-shape {
+                left: unset;
+                right: -20px;
+            }
+        }
+
+        /* Projects Gallery */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 4/3;
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(30, 58, 138, 0.9) 0%, rgba(30, 58, 138, 0.3) 50%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .project-item:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay h4 {
+            color: var(--white);
+            font-size: 1.25rem;
+            font-weight: 600;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+
+        .project-overlay p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.1s;
+        }
+
+        .project-item:hover .project-overlay h4,
+        .project-item:hover .project-overlay p {
+            transform: translateY(0);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Why Choose Us */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: var(--white);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.08), rgba(37, 99, 235, 0.08));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--accent-blue);
+            font-size: 1.75rem;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            color: var(--white);
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: var(--gray-text);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .cta-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            background: var(--white);
+            color: var(--primary-blue);
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item div strong {
+            display: block;
+            color: var(--dark-text);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item div span,
+        .contact-item div a {
+            color: var(--gray-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .contact-item div a:hover {
+            color: var(--accent-blue);
+        }
+
+        .map-container {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            height: 300px;
+            margin-bottom: 2rem;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-form h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background: var(--light-bg);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            background: var(--white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            color: var(--white);
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-brand .logo {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand .logo-icon {
+            display: none;
+        }
+
+        .footer-logo-img {
+            height: 40px;
+            width: auto;
+            max-width: 160px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            color: var(--white);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--light-blue);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent-blue);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.75rem;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            z-index: 999;
+            text-decoration: none;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); }
+            50% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5); }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero stagger animations */
+        .hero-tagline,
+        .hero-title,
+        .hero-subtitle,
+        .hero-btns,
+        .hero-stats,
+        .hero-visual {
+            opacity: 0;
+            transform: translateY(32px);
+            animation: none;
+        }
+
+        .hero-tagline.hero-visible   { animation: heroFadeUp 0.7s ease forwards; }
+        .hero-title.hero-visible     { animation: heroFadeUp 0.7s ease 0.18s forwards; }
+        .hero-subtitle.hero-visible  { animation: heroFadeUp 0.7s ease 0.36s forwards; }
+        .hero-btns.hero-visible      { animation: heroFadeUp 0.7s ease 0.54s forwards; }
+        .hero-stats.hero-visible     { animation: heroFadeUp 0.7s ease 0.72s forwards; }
+        .hero-visual.hero-visible    { animation: heroFadeUp 0.9s ease 0.3s forwards; }
+
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(32px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Typewriter cursor */
+        .typewriter-cursor {
+            display: inline-block;
+            width: 3px;
+            background: var(--light-blue);
+            margin-left: 4px;
+            animation: blink 0.9s step-end infinite;
+            vertical-align: baseline;
+            border-radius: 2px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0; }
+        }
+
+        /* Staggered scroll children */
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .stagger-children.visible > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.05s; }
+        .stagger-children.visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.15s; }
+        .stagger-children.visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
+        .stagger-children.visible > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 0.35s; }
+        .stagger-children.visible > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 0.45s; }
+        .stagger-children.visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 0.55s; }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--light-blue);
+        }
+
+        .mobile-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+            font-size: 1.4rem;
+            cursor: pointer;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .mobile-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta { display: none; }
+            .hamburger { display: flex; }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 1;
+            }
+
+            .hero-visual {
+                order: 0;
+                margin-bottom: 2rem;
+                margin-top: 90px;
+            }
+
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.875rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+        }
+
+        /* Why Us Section */
+        .why-us-section {
+            background: var(--primary-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-us-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .why-us-section .section-header {
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-us-section .section-label {
+            background: rgba(255,255,255,0.1);
+            color: var(--light-blue);
+            padding: 0.3rem 0.9rem;
+            border-radius: 50px;
+        }
+
+        .why-us-section .section-title {
+            color: #fff;
+        }
+
+        .why-us-section .section-desc {
+            color: rgba(255,255,255,0.62);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-card {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 20px;
+            padding: 32px 22px;
+            text-align: center;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .why-card:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-7px);
+            box-shadow: 0 14px 44px rgba(0,0,0,0.22);
+        }
+
+        .why-icon {
+            width: 66px;
+            height: 66px;
+            background: linear-gradient(135deg, rgba(37,99,235,0.45), rgba(96,165,250,0.35));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--light-blue);
+            margin: 0 auto 20px;
+            transition: var(--transition);
+        }
+
+        .why-card:hover .why-icon {
+            background: linear-gradient(135deg, var(--accent-blue), var(--light-blue));
+            color: #fff;
+        }
+
+        .why-card h3 {
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .why-card p {
+            color: rgba(255,255,255,0.58);
+            font-size: 0.855rem;
+            line-height: 1.68;
+        }
+
+        @media (max-width: 1024px) {
+            .why-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .why-grid { grid-template-columns: 1fr; }
+        }
+
+        /* RTL Adjustments */
+        [dir="rtl"] .contact-item {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .logo {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .about-image::before {
+            left: 20px;
+            right: -20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="#home" class="nav-logo">
+                    <img src="Untitled design.PNG" alt="Kishar General Contracting" class="nav-logo-img">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home"     data-en="Home"     data-ar="الرئيسية">Home</a></li>
+                    <li><a href="#about"    data-en="About"    data-ar="من نحن">About</a></li>
+                    <li><a href="#services" data-en="Services" data-ar="خدماتنا">Services</a></li>
+                    <li><a href="#projects" data-en="Projects" data-ar="مشاريعنا">Projects</a></li>
+                    <li><a href="#contact"  data-en="Contact"  data-ar="تواصل معنا">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="lang-toggle" id="langToggle">العربية</button>
+                    <a href="#contact" class="nav-cta" data-en="Get a Quote" data-ar="احصل على عرض">Get a Quote</a>
+                    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
+        <a href="#home"     onclick="closeMobile()" data-en="Home"     data-ar="الرئيسية">Home</a>
+        <a href="#about"    onclick="closeMobile()" data-en="About"    data-ar="من نحن">About</a>
+        <a href="#services" onclick="closeMobile()" data-en="Services" data-ar="خدماتنا">Services</a>
+        <a href="#projects" onclick="closeMobile()" data-en="Projects" data-ar="مشاريعنا">Projects</a>
+        <a href="#contact"  onclick="closeMobile()" data-en="Contact"  data-ar="تواصل معنا">Contact</a>
+        <button class="lang-toggle" id="langToggleMobile">العربية</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-tagline" data-en="Reach Beyond Limits" data-ar="تجاوز الحدود">Reach Beyond Limits</span>
+                <h1 class="hero-title" id="heroTitle" data-en="Your Partner to Build Your Dream House" data-ar="شريكك لبناء منزل أحلامك"></h1>
+                <p class="hero-subtitle" data-en="Premium construction services for residential and commercial projects in Basra, Iraq. Quality, precision, and reliability in every brick." data-ar="خدمات بناء متميزة للمشاريع السكنية والتجارية في البصرة، العراق. الجودة، الدقة، والموثوقية في كل لبنة.">Premium construction services for residential and commercial projects in Basra, Iraq. Quality, precision, and reliability in every brick.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-phone"></i>
+                        <span data-en="Contact Us" data-ar="اتصل بنا">Contact Us</span>
+                    </a>
+                    <a href="#projects" class="btn btn-outline">
+                        <i class="fas fa-images"></i>
+                        <span data-en="View Projects" data-ar="عرض المشاريع">View Projects</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label" data-en="Years" data-ar="سنة">Years</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">200+</span>
+                        <span class="stat-label" data-en="Projects" data-ar="مشروع">Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label" data-en="Experts" data-ar="خبير">Experts</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-visual-inner">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Modern House Construction">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section blueprint-bg" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80" alt="Construction Team">
+                </div>
+                <div class="about-content animate-on-scroll">
+                    <span class="section-label" data-en="About Us" data-ar="من نحن">About Us</span>
+                    <h2 data-en="Building Tomorrow's Landmarks Today" data-ar="نبني معالم الغد اليوم">Building Tomorrow's Landmarks Today</h2>
+                    <p data-en="Kishar Company is a leading general contracting company specializing in residential and commercial construction, delivering high-quality projects with precision and reliability. Founded on the principles of integrity and engineering excellence, we have built trust with hundreds of clients across Iraq." data-ar="شركة كيشار هي شركة مقاولات عامة رائدة متخصصة في البناء السكني والتجاري، تقدم مشاريع عالية الجودة بدقة وموثوقية. تأسست على مبادئ النزاهة والتميز الهندسي، وقد بنينا الثقة مع مئات العملاء في جميع أنحاء العراق.">Kishar Company is a leading general contracting company specializing in residential and commercial construction, delivering high-quality projects with precision and reliability. Founded on the principles of integrity and engineering excellence, we have built trust with hundreds of clients across Iraq.</p>
+                    <p data-en="Our team of experienced engineers and skilled craftsmen is committed to transforming your vision into reality — on time, within budget, and beyond expectations." data-ar="يلتزم فريقنا من المهندسين ذوي الخبرة والحرفيين المهرة بتحويل رؤيتك إلى واقع — في الوقت المحدد، وضمن الميزانية، وبما يتجاوز التوقعات.">Our team of experienced engineers and skilled craftsmen is committed to transforming your vision into reality — on time, within budget, and beyond expectations.</p>
+                    <div class="about-highlights">
+                        <div class="highlight-card">
+                            <div class="highlight-icon"><i class="fas fa-award"></i></div>
+                            <h4 data-en="15+ Years Experience" data-ar="+15 سنة خبرة">15+ Years Experience</h4>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon"><i class="fas fa-medal"></i></div>
+                            <h4 data-en="Premium Quality" data-ar="جودة متميزة">Premium Quality</h4>
+                        </div>
+                        <div class="highlight-card">
+                            <div class="highlight-icon"><i class="fas fa-handshake"></i></div>
+                            <h4 data-en="Trusted Partner" data-ar="شريك موثوق">Trusted Partner</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section blueprint-bg" id="services" style="background: var(--light-bg);">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label" data-en="OUR SERVICES" data-ar="خدماتنا">OUR SERVICES</span>
+                <h2 class="section-title">
+                    <span data-en="Complete Construction Solutions" data-ar="حلول بناء شاملة">Complete Construction Solutions</span><br>
+                    <span style="color: var(--accent-blue);" data-en="Built Around Your Vision" data-ar="مبنية حول رؤيتك">Built Around Your Vision</span>
+                </h2>
+                <p class="section-desc" data-en="From concept to completion, we deliver reliable, high-quality construction services tailored to your needs." data-ar="من الفكرة إلى الإنجاز، نقدم خدمات بناء موثوقة وعالية الجودة مصممة خصيصًا لتلبية احتياجاتك.">From concept to completion, we deliver reliable, high-quality construction services tailored to your needs.</p>
+            </div>
+
+            <div class="services-grid stagger-children animate-on-scroll">
+                <!-- Card 1 -->
+                <a href="#contact" class="service-card">
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-home"></i></div>
+                        <h3 data-en="Residential Construction" data-ar="البناء السكني">Residential Construction</h3>
+                        <p data-en="Custom homes, villas, and apartment buildings built to your exact specifications with modern designs and durable materials." data-ar="منازل مخصصة وفلل ومباني شقق مبنية وفقاً لمواصفاتك الدقيقة بتصاميم حديثة ومواد متينة.">Custom homes, villas, and apartment buildings built to your exact specifications with modern designs and durable materials.</p>
+                    </div>
+                    <div class="service-image-wrapper">
+                        <div class="service-image-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80');"></div>
+                        <div class="service-shape"></div>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="#contact" class="service-card">
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-building"></i></div>
+                        <h3 data-en="Commercial Projects" data-ar="المشاريع التجارية">Commercial Projects</h3>
+                        <p data-en="Office buildings, retail spaces, warehouses, and industrial facilities designed for maximum functionality and efficiency." data-ar="مباني المكاتب والمساحات التجارية والمستودعات والمرافق الصناعية المصممة لأقصى قدر من الوظائف والكفاءة.">Office buildings, retail spaces, warehouses, and industrial facilities designed for maximum functionality and efficiency.</p>
+                    </div>
+                    <div class="service-image-wrapper">
+                        <div class="service-image-bg" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80');"></div>
+                        <div class="service-shape"></div>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="#contact" class="service-card">
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-drafting-compass"></i></div>
+                        <h3 data-en="Architectural Design" data-ar="التصميم المعماري">Architectural Design</h3>
+                        <p data-en="Innovative architectural solutions blending aesthetics with structural integrity for stunning, functional spaces." data-ar="حلول معمارية مبتكرة تجمع بين الجماليات والسلامة الإنشائية لمساحات مذهلة ووظيفية.">Innovative architectural solutions blending aesthetics with structural integrity for stunning, functional spaces.</p>
+                    </div>
+                    <div class="service-image-wrapper">
+                        <div class="service-image-bg" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80');"></div>
+                        <div class="service-shape"></div>
+                    </div>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="#contact" class="service-card">
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
+                        <h3 data-en="Renovation & Finishing" data-ar="التجديد والتشطيب">Renovation & Finishing</h3>
+                        <p data-en="Complete renovation, interior finishing, and modernization services to transform existing spaces into modern masterpieces." data-ar="خدمات التجديد الكاملة والتشطيب الداخلي والتحديث لتحويل المساحات الموجودة إلى تحف حديثة.">Complete renovation, interior finishing, and modernization services to transform existing spaces into modern masterpieces.</p>
+                    </div>
+                    <div class="service-image-wrapper">
+                        <div class="service-image-bg" style="background-image: url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&q=80');"></div>
+                        <div class="service-shape"></div>
+                    </div>
+                </a>
+
+                <!-- Card 5 -->
+                <a href="#contact" class="service-card">
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-tasks"></i></div>
+                        <h3 data-en="Project Management" data-ar="إدارة المشاريع">Project Management</h3>
+                        <p data-en="End-to-end project oversight ensuring on-time delivery, budget control, and quality assurance at every milestone." data-ar="الإشراف على المشروع من البداية إلى النهاية لضمان التسليم في الوقت المحدد ومراقبة الميزانية وجودة العمل في كل مرحلة.">End-to-end project oversight ensuring on-time delivery, budget control, and quality assurance at every milestone.</p>
+                    </div>
+                    <div class="service-image-wrapper">
+                        <div class="service-image-bg" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80');"></div>
+                        <div class="service-shape"></div>
+                    </div>
+                </a>
+
+                <!-- Card 6 -->
+                <a href="#contact" class="service-card">
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
+                        <h3 data-en="Engineering Consultation" data-ar="الاستشارات الهندسية">Engineering Consultation</h3>
+                        <p data-en="Expert structural, civil, and MEP engineering consultation to guide your project from feasibility to final inspection." data-ar="استشارات هندسية متخصصة في الإنشاءات والمدنية والأنظمة الميكانيكية والكهربائية لسبر مشروعك من الجدوى إلى الاستلام النهائي.">Expert structural, civil, and MEP engineering consultation to guide your project from feasibility to final inspection.</p>
+                    </div>
+                    <div class="service-image-wrapper">
+                        <div class="service-image-bg" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80');"></div>
+                        <div class="service-shape"></div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Bottom CTA Bar -->
+            <div class="services-cta animate-on-scroll">
+                <div class="cta-left">
+                    <div class="cta-icon-large"><i class="fas fa-clipboard-check"></i></div>
+                    <div class="cta-text">
+                        <h3 data-en="Have a Project in Mind?" data-ar="هل لديك مشروع في ذهنك؟">Have a Project in Mind?</h3>
+                        <p data-en="Let's build something great together." data-ar="لنبنِ شيئًا رائعًا معًا.">Let's build something great together.</p>
+                    </div>
+                </div>
+                <div class="cta-features">
+                    <div class="cta-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <strong data-en="High Quality" data-ar="جودة عالية">High Quality</strong>
+                            <span data-en="Guaranteed Standards" data-ar="معايير مضمونة">Guaranteed Standards</span>
+                        </div>
+                    </div>
+                    <div class="cta-feature">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong data-en="On-Time Delivery" data-ar="تسليم في الموعد">On-Time Delivery</strong>
+                            <span data-en="We Respect Deadlines" data-ar="نحن نحترم المواعيد">We Respect Deadlines</span>
+                        </div>
+                    </div>
+                    <div class="cta-feature">
+                        <i class="fas fa-tags"></i>
+                        <div>
+                            <strong data-en="Competitive Pricing" data-ar="أسعار تنافسية">Competitive Pricing</strong>
+                            <span data-en="Best Value for Your Investment" data-ar="أفضل قيمة لاستثمارك">Best Value for Your Investment</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cta-right">
+                    <a href="#contact" class="btn">
+                        <span data-en="Get a Free Quote &rarr;" data-ar="احصل على عرض مجاني &larr;">Get a Free Quote &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Gallery -->
+    <section class="section blueprint-bg" id="projects">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label" data-en="Our Projects" data-ar="مشاريعنا">Our Projects</span>
+                <h2 class="section-title" data-en="Featured Work" data-ar="أعمالنا المميزة">Featured Work</h2>
+                <p class="section-desc" data-en="A showcase of our finest construction projects across Basra and beyond." data-ar="معرض لأرقى مشاريع البناء في البصرة وما وراها.">A showcase of our finest construction projects across Basra and beyond.</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-item animate-on-scroll" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Luxury Villa">
+                    <div class="project-overlay">
+                        <h4 data-en="Luxury Villa" data-ar="فيلا فاخرة">Luxury Villa</h4>
+                        <p data-en="Basra, Iraq" data-ar="البصرة، العراق">Basra, Iraq</p>
+                    </div>
+                </div>
+                <div class="project-item animate-on-scroll" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Modern Residence">
+                    <div class="project-overlay">
+                        <h4 data-en="Modern Residence" data-ar="مسكن عصري">Modern Residence</h4>
+                        <p data-en="Residential Complex" data-ar="مجمع سكني">Residential Complex</p>
+                    </div>
+                </div>
+                <div class="project-item animate-on-scroll" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Commercial Tower">
+                    <div class="project-overlay">
+                        <h4 data-en="Commercial Tower" data-ar="برج تجاري">Commercial Tower</h4>
+                        <p data-en="Downtown Basra" data-ar="وسط البصرة">Downtown Basra</p>
+                    </div>
+                </div>
+                <div class="project-item animate-on-scroll" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&q=80" alt="Interior Design">
+                    <div class="project-overlay">
+                        <h4 data-en="Interior Finishing" data-ar="تشطيب داخلي">Interior Finishing</h4>
+                        <p data-en="Premium Finishing Works" data-ar="أعمال تشطيب ممتازة">Premium Finishing Works</p>
+                    </div>
+                </div>
+                <div class="project-item animate-on-scroll" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80" alt="Construction Site">
+                    <div class="project-overlay">
+                        <h4 data-en="Ongoing Construction" data-ar="بناء جاري">Ongoing Construction</h4>
+                        <p data-en="Large Scale Project" data-ar="مشروع واسع النطاق">Large Scale Project</p>
+                    </div>
+                </div>
+                <div class="project-item animate-on-scroll" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80" alt="Family Home">
+                    <div class="project-overlay">
+                        <h4 data-en="Family Home" data-ar="بيت العائلة">Family Home</h4>
+                        <p data-en="Custom Design" data-ar="تصميم مخصص">Custom Design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section why-us-section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label" data-en="Why Kishar" data-ar="لماذا كيشار">Why Kishar</span>
+                <h2 class="section-title" data-en="Why Choose Us?" data-ar="لماذا تختارنا؟">Why Choose Us?</h2>
+                <p class="section-desc" data-en="We combine decades of expertise with modern engineering to deliver projects that exceed every expectation." data-ar="نجمع عقودًا من الخبرة مع الهندسة الحديثة لتقديم مشاريع تفوق كل توقع.">We combine decades of expertise with modern engineering to deliver projects that exceed every expectation.</p>
+            </div>
+            <div class="why-grid stagger-children animate-on-scroll">
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-gem"></i></div>
+                    <h3 data-en="High Quality Execution" data-ar="جودة تنفيذ عالية">High Quality Execution</h3>
+                    <p data-en="Premium materials and proven construction methods ensure every project meets international quality standards." data-ar="تضمن المواد الفاخرة وأساليب البناء المثبتة أن كل مشروع يلبي المعايير الدولية للجودة.">Premium materials and proven construction methods ensure every project meets international quality standards.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-users-cog"></i></div>
+                    <h3 data-en="Experienced Team" data-ar="فريق ذو خبرة">Experienced Team</h3>
+                    <p data-en="Our engineers, architects, and project managers bring decades of combined expertise to every challenge." data-ar="يجلب مهندسونا ومعماريونا ومديرو مشاريعنا عقودًا من الخبرة المشتركة لكل تحدَ.">Our engineers, architects, and project managers bring decades of combined expertise to every challenge.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-clock"></i></div>
+                    <h3 data-en="On-Time Delivery" data-ar="التسليم في الوقت المحدد">On-Time Delivery</h3>
+                    <p data-en="Rigorous project management ensures deadlines are met without ever compromising on quality or safety." data-ar="تضمن إدارة المشاريع الصارمة الالتزام بالمواعيد دون التنازل عن الجودة أو السلامة.">Rigorous project management ensures deadlines are met without ever compromising on quality or safety.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-smile-beam"></i></div>
+                    <h3 data-en="Customer Satisfaction" data-ar="رضا العملاء">Customer Satisfaction</h3>
+                    <p data-en="Your satisfaction is our greatest achievement. We listen, adapt, and deliver precisely what you envision." data-ar="رضاك هو أعظم إنجازاتنا. نستمع ونتكيف ونسلّم بالضبط ما تتخيله.">Your satisfaction is our greatest achievement. We listen, adapt, and deliver precisely what you envision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content animate-on-scroll">
+                <h2 data-en="Start Building Your Project Today" data-ar="ابدأ ببناء مشروعك اليوم">Start Building Your Project Today</h2>
+                <p data-en="Ready to turn your vision into reality? Get in touch for a free consultation and quote." data-ar="مستعد لتحويل رؤيتك إلى واقع؟ تواصل معنا للحصول على استشارة وعرض سعر مجاني.">Ready to turn your vision into reality? Get in touch for a free consultation and quote.</p>
+                <a href="#contact" class="btn cta-btn">
+                    <i class="fas fa-file-invoice"></i>
+                    <span data-en="Get a Quote" data-ar="احصل على عرض سعر">Get a Quote</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section blueprint-bg" id="contact">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label" data-en="Contact Us" data-ar="تواصل معنا">Contact Us</span>
+                <h2 class="section-title" data-en="Let's Build Together" data-ar="لنبنِ معاً">Let's Build Together</h2>
+                <p class="section-desc" data-en="Reach out to us for inquiries, quotes, or to start your next project." data-ar="تواصل معنا للاستفسارات أو عروض الأسعار أو لبدء مشروعك القادم.">Reach out to us for inquiries, quotes, or to start your next project.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info animate-on-scroll">
+                    <h3 data-en="Contact Information" data-ar="معلومات التواصل">Contact Information</h3>
+                    <div class="contact-list">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong data-en="Phone" data-ar="الهاتف">Phone</strong>
+                                <span>0775 4444 131<br>0785 4444 131</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong data-en="Email" data-ar="البريد الإلكتروني">Email</strong>
+                                <a href="mailto:info.kishar@gmail.com">info.kishar@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong data-en="Address" data-ar="العنوان">Address</strong>
+                                <span data-en="Basra, Al-Tijari Street, Dawr Al-Dubat, Iraq" data-ar="البصرة، شارع التجاري، دور الضباط، العراق">Basra, Al-Tijari Street, Dawr Al-Dubat, Iraq</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <div>
+                                <strong data-en="Website" data-ar="الموقع الإلكتروني">Website</strong>
+                                <a href="https://kishar.co" target="_blank">kishar.co</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108252.28624879948!2d47.73692905!3d30.51571205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fc49e0498d1c7af%3A0xf6eb5be61f94c52f!2sBasra%2C%20Iraq!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="contact-form animate-on-scroll">
+                    <h3 data-en="Send us a Message" data-ar="أرسل لنا رسالة">Send us a Message</h3>
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <label for="name" data-en="Name" data-ar="الاسم">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" data-en="Phone" data-ar="الهاتف">Phone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-en="Message" data-ar="الرسالة">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            <span data-en="Send Message" data-ar="إرسال الرسالة">Send Message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="Untitled design.PNG" alt="Kishar General Contracting" class="footer-logo-img">
+                    <a href="#" class="logo">
+                        <span data-en="Kishar Company" data-ar="شركة كيشار">Kishar Company</span>
+                    </a>
+                    <p data-en="Your trusted partner for general contracting and construction excellence in Basra, Iraq. Reach Beyond Limits." data-ar="شريكك الموثوق للمقاولات العامة وتميز البناء في البصرة، العراق. تجاوز الحدود.">Your trusted partner for general contracting and construction excellence in Basra, Iraq. Reach Beyond Limits.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+                    <ul>
+                        <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+                        <li><a href="#about" data-en="About" data-ar="من نحن">About</a></li>
+                        <li><a href="#services" data-en="Services" data-ar="خدماتنا">Services</a></li>
+                        <li><a href="#projects" data-en="Projects" data-ar="مشاريعنا">Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-en="Services" data-ar="خدماتنا">Services</h4>
+                    <ul>
+                        <li><a href="#services" data-en="Residential" data-ar="سكني">Residential</a></li>
+                        <li><a href="#services" data-en="Commercial" data-ar="تجاري">Commercial</a></li>
+                        <li><a href="#services" data-en="Renovation" data-ar="تجديد">Renovation</a></li>
+                        <li><a href="#services" data-en="Consultation" data-ar="استشارة">Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 data-en="Contact" data-ar="تواصل">Contact</h4>
+                    <ul>
+                        <li><a href="tel:07754444131">0775 4444 131</a></li>
+                        <li><a href="tel:07854444131">0785 4444 131</a></li>
+                        <li><a href="mailto:info.kishar@gmail.com">info.kishar@gmail.com</a></li>
+                        <li><a href="https://kishar.co" target="_blank">kishar.co</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-en="&copy; 2024 Kishar Company for General Contracting. All rights reserved." data-ar="&copy; 2024 شركة كيشار للمقاولات العامة. جميع الحقوق محفوظة.">&copy; 2024 Kishar Company for General Contracting. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/9647754444131" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">
+            <i class="fas fa-times"></i>
+        </button>
+        <img id="lightboxImg" src="" alt="Project Image">
+    </div>
+
+    <script>
+        // ── Navbar scroll shadow ──────────────────────────────────────────────
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 60);
+        }, { passive: true });
+
+        // ── Mobile menu ───────────────────────────────────────────────────────
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        document.getElementById('mobileClose').addEventListener('click', closeMobile);
+        function closeMobile() {
+            document.getElementById('mobileMenu').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // ── Language toggle (EN ↔ AR) ─────────────────────────────────────────
+        let currentLang = 'en';
+
+        function toggleLang() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            const isAr = currentLang === 'ar';
+
+            document.documentElement.setAttribute('lang', currentLang);
+            document.documentElement.setAttribute('dir', isAr ? 'rtl' : 'ltr');
+            document.body.setAttribute('dir', isAr ? 'rtl' : 'ltr');
+
+            const label = isAr ? 'English' : 'العربية';
+            document.getElementById('langToggle').textContent = label;
+            document.getElementById('langToggleMobile').textContent = label;
+
+            document.querySelectorAll('[data-en][data-ar]').forEach(el => {
+                if (el.id === 'heroTitle') return; // handled by typewriter
+                el.textContent = isAr ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+            });
+
+            // Re-run typewriter on lang switch
+            const newText = isAr
+                ? heroTitleEl.getAttribute('data-ar')
+                : heroTitleEl.getAttribute('data-en');
+            twIndex = 0;
+            twDone = false;
+            heroTitleEl.innerHTML = '';
+            const _savedText = heroTitleText;
+            // override the captured text for this run
+            (function runTW(text) {
+                let i = 0;
+                function step() {
+                    if (i <= text.length) {
+                        heroTitleEl.innerHTML = text.slice(0, i) +
+                            (i < text.length ? '<span class="typewriter-cursor" style="height:1em;"> </span>' : '');
+                        i++;
+                        setTimeout(step, i === 1 ? 300 : 42);
+                    }
+                }
+                step();
+            })(newText);
+        }
+
+        document.getElementById('langToggle').addEventListener('click', toggleLang);
+        document.getElementById('langToggleMobile').addEventListener('click', function() { toggleLang(); closeMobile(); });
+
+        // ── Hero entrance animations ───────────────────────────────────────
+        const heroEls = document.querySelectorAll(
+            '.hero-tagline, .hero-title, .hero-subtitle, .hero-btns, .hero-stats, .hero-visual'
+        );
+        heroEls.forEach(el => el.classList.add('hero-visible'));
+
+        // ── Typewriter for hero title ─────────────────────────────────────────
+        const heroTitleEl = document.getElementById('heroTitle');
+        const heroTitleText = heroTitleEl.getAttribute('data-en');
+        let twIndex = 0;
+        let twDone = false;
+
+        function typeWriter() {
+            if (twIndex <= heroTitleText.length) {
+                heroTitleEl.innerHTML =
+                    heroTitleText.slice(0, twIndex) +
+                    '<span class="typewriter-cursor" style="height:1em;"> </span>';
+                twIndex++;
+                setTimeout(typeWriter, twIndex === 1 ? 900 : 42);
+            } else {
+                twDone = true;
+                heroTitleEl.innerHTML = heroTitleText; // remove cursor when done
+            }
+        }
+        typeWriter();
+
+        // Patch toggleLang to reset typewriter when switching languages
+        const _origToggleLang = toggleLang;
+
+        // ── Scroll-reveal animations ──────────────────────────────────────────
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        // ── Lightbox ──────────────────────────────────────────────────────────
+        function openLightbox(item) {
+            const img = item.querySelector('img');
+            document.getElementById('lightboxImg').src = img.src;
+            document.getElementById('lightboxImg').alt = img.alt;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Prevent closing when clicking the image itself
+        document.getElementById('lightboxImg').addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        // ── Contact form ──────────────────────────────────────────────────────
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name    = document.getElementById('name').value.trim();
+            const phone   = document.getElementById('phone').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            const waMsg = encodeURIComponent(
+                `Hello, I'm ${name}\nPhone: ${phone}\n\n${message}`
+            );
+            window.open(`https://wa.me/9647754444131?text=${waMsg}`, '_blank');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
